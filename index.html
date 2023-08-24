@@ -975,111 +975,53 @@ var WPGroHo = {"my_hash":"11c64949f3f7dda34a3914b45e14968c"};
 </script>
 <script crossorigin='anonymous' type='text/javascript' src='https://s0.wp.com/wp-content/mu-plugins/gravatar-hovercards/wpgroho.js?m=1610363240i'></script>
 
-<script>
-window.addEventListener( "load", function( event ) {
-	var link = document.createElement( "link" );
-	link.href = "https://s0.wp.com/wp-content/mu-plugins/actionbar/actionbar.css?v=20210915";
-	link.type = "text/css";
-	link.rel = "stylesheet";
-	document.head.appendChild( link );
+	<script>
+		// Initialize and attach hovercards to all gravatars
+		( function() {
+			function init() {
+				if ( typeof Gravatar === 'undefined' ) {
+					return;
+				}
 
-	var script = document.createElement( "script" );
-	script.src = "https://s0.wp.com/wp-content/mu-plugins/actionbar/actionbar.js?v=20220329";
-	script.defer = true;
-	document.body.appendChild( script );
-} );
-</script>
+				if ( typeof Gravatar.init !== 'function' ) {
+					return;
+				}
 
-	<script crossorigin='anonymous' type='text/javascript' src='https://s0.wp.com/_static/??-eJyNjUsOAiEQBS9kD36iwYXxLAx0tHEaCA2jx7c1Mc7ChbuXVFWeuRfwOTVMzUQxAWfyWB5DlJVRRMlPPaC82DXPWOmtQpSBKf2yXFAAo6tL4fPAHcrUL5QWnnKfGb7dPw07aVh1QavO30SjM582B7vd2+NubeMT8dlOmQ=='></script>
+				Gravatar.profile_cb = function ( hash, id ) {
+					WPGroHo.syncProfileData( hash, id );
+				};
 
-	<div id="ab-reblog-box" style="display:none;">
-		<form action="" name="reblog">
-			<div class="reblog-footer">
-				<div class="dropdown-container">
-					<button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
-						Publicar en <span class="selected-site"></span>
-						<span class="arrow-container">
-							<svg class="arrow" fill="none" height="12" viewBox="0 0 12 12" width="12" xmlns="http://www.w3.org/2000/svg">
-								<path clip-rule="evenodd" d="m5.96087 7.68078-4.12055-4.18078-.84032.97158 5 5.02842 5-5.04912-.8813-.93023z" fill="#a7aaad" fill-rule="evenodd"/>
-							</svg>
-						</span>
-					</button>
-					<ul class="dropdown-menu" role="menu" hidden>
-													<li role="option" data-id="216420413" tabindex="0">
-								<img
-								  loading="lazy"
-									src="https://s0.wp.com/i/logo/w-64.png"
-									srcset="https://s0.wp.com/i/logo/w-64.png 1x"
-									alt="Icono del sitio" />
-								<div class="site-desc">
-									<strong>Tedounpoco</strong>
-									<span>tedounpoco.wordpress.com</span>
-								</div>
-							</li>
-													<li role="option" data-id="222717909" tabindex="0">
-								<img
-								  loading="lazy"
-									src="https://s0.wp.com/i/logo/w-64.png"
-									srcset="https://s0.wp.com/i/logo/w-64.png 1x"
-									alt="Icono del sitio" />
-								<div class="site-desc">
-									<strong>Título del sitio</strong>
-									<span>chukymantilla253.wordpress.com</span>
-								</div>
-							</li>
-													<li role="option" data-id="220629498" tabindex="0">
-								<img
-								  loading="lazy"
-									src="https://s0.wp.com/i/logo/w-64.png"
-									srcset="https://s0.wp.com/i/logo/w-64.png 1x"
-									alt="Icono del sitio" />
-								<div class="site-desc">
-									<strong>Mi blog</strong>
-									<span>elblogdejuan2.wordpress.com</span>
-								</div>
-							</li>
-													<li role="option" data-id="222575799" tabindex="0">
-								<img
-								  loading="lazy"
-									src="https://s0.wp.com/i/logo/w-64.png"
-									srcset="https://s0.wp.com/i/logo/w-64.png 1x"
-									alt="Icono del sitio" />
-								<div class="site-desc">
-									<strong>Título del sitio</strong>
-									<span>chukymantilla25.wordpress.com</span>
-								</div>
-							</li>
-													<li role="option" data-id="222676442" tabindex="0">
-								<img
-								  loading="lazy"
-									src="https://s0.wp.com/i/logo/w-64.png"
-									srcset="https://s0.wp.com/i/logo/w-64.png 1x"
-									alt="Icono del sitio" />
-								<div class="site-desc">
-									<strong>Título del sitio</strong>
-									<span>chukymantilla20.wordpress.com</span>
-								</div>
-							</li>
-													<li role="option" data-id="222712678" tabindex="0">
-								<img
-								  loading="lazy"
-									src="https://s0.wp.com/i/logo/w-64.png"
-									srcset="https://s0.wp.com/i/logo/w-64.png 1x"
-									alt="Icono del sitio" />
-								<div class="site-desc">
-									<strong>Título del sitio</strong>
-									<span>chukymantilla212.wordpress.com</span>
-								</div>
-							</li>
-											</ul>
-					<input type="hidden" name="to_blog_id" id="reblog-to-blog-id" value="" />
-				</div>
-				<input type="submit" name="reblog-submit" class="button-primary" id="reblog-submit" value="Open Reblog Editor" />
-				<a href="" class="cancel" tabindex="0" title="Cancelar">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="4 4 16 16"><path fill="#a7aaad" d="M18.36 19.78 12 13.41l-6.36 6.37-1.42-1.42L10.59 12 4.22 5.64l1.42-1.42L12 10.59l6.36-6.36 1.41 1.41L13.41 12l6.36 6.36z"/></svg>
-				</a>
-				<input type="hidden" id="original-post-id" value="3" />
-			</div>
+				Gravatar.my_hash = WPGroHo.my_hash;
+				Gravatar.init(
+					'body',
+					'#wp-admin-bar-my-account',
+					{
+						i18n: {
+							'Edit your profile': 'Edita tu perfil',
+							'View profile': 'View profile',
+							'Sorry, we are unable to load this Gravatar profile.': 'Sorry, we are unable to load this Gravatar profile.',
+							'Sorry, we are unable to load this Gravatar profile. Please check your internet connection.': 'Sorry, we are unable to load this Gravatar profile. Please check your internet connection.',
+						},
+					}
+				);
+			}
+
+			if ( document.readyState !== 'loading' ) {
+				init();
+			} else {
+				document.addEventListener( 'DOMContentLoaded', init );
+			}
+		} )();
+	</script>
+
+		<div style="display:none">
+	<div class="grofile-hash-map-11c64949f3f7dda34a3914b45e14968c">
+	</div>
+	</div>
+	<div id="actionbar" style="display: none;"
+			class="actnbr-pub-startfit actnbr-has-customize">
+		<ul>
+
 
 			<input type="hidden" id="_wpnonce" name="_wpnonce" value="aaa298dcf2" /><input type="hidden" name="_wp_http_referer" value="/" />		</form>
 
@@ -1385,6 +1327,8 @@ try{
       s.parentNode.insertBefore(jl, s);
     }
   }
+  
+  
 }catch(e){}
 })();
 // ]]>
